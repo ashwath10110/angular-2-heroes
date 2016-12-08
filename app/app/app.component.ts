@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from './../navbar/navbar.component';
 
 @Component({
 	selector: 'my-app',
 	template: `
+  <navbar></navbar>
   <h1>{{title}}</h1>
   <nav>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app/app.component';
 import { HeroesComponent } from './heroes/heroes-component/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './heroes/hero-detail/hero-detail.component';
 import { HeroService } from './heroes/heroes-services/hero.service';
-import { RouterModule } from '@angular/router';
+import { HeroesMoreComponent } from './heroes/heroes-component-more/heroes.more.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 RouterModule.forRoot([
 	{
@@ -34,6 +36,9 @@ RouterModule.forRoot([
 				path: '',
 				redirectTo: '/dashboard',
 				pathMatch: 'full'
+			}, {
+				path: 'more-detail/:id',
+				component: HeroesMoreComponent
 			}
 		])
 	],
@@ -42,7 +47,9 @@ RouterModule.forRoot([
 		AppComponent,
 		HeroDetailComponent,
 		DashboardComponent,
-		HeroesComponent],
+		HeroesComponent,
+		HeroesMoreComponent,
+		NavbarComponent],
 
 	providers: [
 		HeroService

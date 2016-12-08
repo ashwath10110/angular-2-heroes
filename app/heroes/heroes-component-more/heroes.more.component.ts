@@ -8,13 +8,13 @@ import { Hero } from './../models/hero';
 
 @Component({
 	moduleId: module.id,
-	selector: 'hero-detail',
-	templateUrl: 'hero-detail.component.html'
+	selector: 'heroes-more',
+	templateUrl: 'heroes.more.component.html',
+	styleUrls: ['heroes.more.component.css'],
+	providers: [HeroService]
 })
-export class HeroDetailComponent implements OnInit {
-
+export class HeroesMoreComponent implements OnInit {
 	heroes: Hero[] = [];
-	hero: Hero;
 
 	constructor(
 		private heroService: HeroService,
@@ -22,22 +22,18 @@ export class HeroDetailComponent implements OnInit {
 		private location: Location
 	) { }
 
-	// @Input()
-	// hero: Hero;
+	@Input()
+	hero: Hero;
 
 	ngOnInit(): void {
 		this.route.params
 			.switchMap((params: Params) => this.heroService.getHero(+params['id']))
 			.subscribe(hero => this.hero = hero);
-
-		this.heroService.getHeroes()
-			.then(heroes => this.heroes = heroes.slice(1, 5));
-
-			// this.hero = this.heroes[0];
 	}
 
 	goBack(): void {
 		this.location.back();
 	}
-
 }
+
+

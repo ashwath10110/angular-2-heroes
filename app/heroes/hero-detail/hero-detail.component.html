@@ -6,5 +6,8 @@
     <label>name: </label>
     <input [(ngModel)]="hero.name" placeholder="name" />
   </div>
+  <button [routerLink]="['/more-detail', hero.id]">More Details</button>
   <button (click)="goBack()">Back</button>
-</div>
+  </div>
+
+
